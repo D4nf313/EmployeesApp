@@ -1,0 +1,47 @@
+<br>
+<br>
+<div m-3>
+    <h1>Listado de Empleados</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col col-sm-4  p-2 flex-fill" *ngFor="let empleado of empleados" >
+   <mat-card>
+
+    <mat-card-header>    
+    <mat-card-title>
+        <h3><strong>ID:</strong> {{empleado.id}}</h3>
+    </mat-card-title>
+    </mat-card-header>
+        <ng-container >
+            <div *ngIf="empleado.employee_age > 30">
+              <img src="assets/viejo_1.jpg" class="img-fluid" />
+            </div>
+            
+            <div *ngIf="empleado.employee_age <= 30">
+              <img src="assets/joven_1.jpg" class="img-fluid" />
+            </div>
+          </ng-container>
+          <mat-card-content>
+            <p>
+                <strong>Nombre Empleado:</strong> {{empleado.employee_name}}
+                <br>
+                <strong>Edad:</strong>{{empleado.employee_age}}
+                <br>
+                <strong>Sueldo:</strong>{{empleado.employee_salary}}
+            </p>
+    
+          </mat-card-content>
+
+   </mat-card>
+
+   
+
+
+
+
+  
+
+
+

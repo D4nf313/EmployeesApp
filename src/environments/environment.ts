@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  server_api_url: 'https://dummy.restapiexample.com/api/v1',  
   production: false
 };
 

@@ -1,0 +1,63 @@
+<br />
+<br />
+<h1 m-4 p-4>Buscar Empleado por ID</h1>
+<h3>En esta sección podrá buscar el empleado digitando el ID a continuación</h3>
+<div class="col-4">
+  <div class="row-3">
+    <form [formGroup]="employeeForm">
+      <label for="cargo" class="textoLabel body-1 mb-1">ID empleado*</label>
+      <input
+        type="text"
+        class="form-control"
+        id="ID"
+        formControlName="id"
+        placeholder="ID"
+      />
+    </form>
+  </div>
+  <div class="row-2 my-2">
+    <button
+      type="button"
+      class="btn btn-sm btn-primary"
+      [disabled]="!employeeForm.valid"
+      (click)="search()"
+    >
+      Buscar
+    </button>
+  </div>
+</div>
+
+<ng-container *ngIf="bandResultado">
+
+    <div class="row">
+        <div class="col">
+            <mat-card>
+                    <mat-card-header>  
+                        <h2><strong>Resultado:</strong></h2>
+                    </mat-card-header>
+                    <ng-container >
+                        <div *ngIf="resultado!.employee_age > 30">
+                          <img src="assets/viejo_1.jpg" class="img-fluid" />
+                        </div>
+                        
+                        <div *ngIf="resultado!.employee_age <= 30">
+                          <img src="assets/joven_1.jpg" class="img-fluid" />
+                        </div>
+                      </ng-container>
+                      <mat-card-content>
+                        <p>
+                            <strong>Nombre Empleado:</strong> {{resultado.employee_name}}
+                            <br>
+                            <strong>Edad:</strong>{{resultado.employee_age}}
+                            <br>
+                            <strong>Sueldo:</strong>{{resultado.employee_salary}}
+                        </p>
+                
+                      </mat-card-content>
+                    
+            </mat-card>
+        </div>
+    </div>
+
+</ng-container>
+
